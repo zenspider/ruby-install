@@ -34,7 +34,7 @@ function install_packages()
 			if (( UID == 0 )) && [[ -n "$SUDO_USER" ]]; then
 				# Note: to avoid running homebrew as root,
 				# drop privileges back to the original sudo user
-				brew_sudo="sudo -u \"$SUDO_USER\""
+				brew_sudo="sudo -Eu \"$SUDO_USER\""
 			fi
 
 			run $brew_sudo brew install "$@" ||
